@@ -18,6 +18,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.pacesync.presentation.ui.main.MainView
 import com.example.pacesync.presentation.ui.main.MainNavigate
+import com.example.pacesync.presentation.ui.settings.SettingsView
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +48,7 @@ fun WearApp() {
                 navController.navigate("start")
             }
         }) }
-        composable("settings") {}
+        composable("settings") { SettingsView() }
         composable("start") {}
     }
 }

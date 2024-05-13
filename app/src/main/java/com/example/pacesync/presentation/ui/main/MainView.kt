@@ -37,7 +37,7 @@ fun MainView(navigate: MainNavigate) {
                         contentDescription = stringResource(R.string.settings_description))
                 }
                 Button(onClick = { navigate.toStart() }) {
-                    Icon(painter= painterResource(R.drawable.baseline_arrow_right_24),
+                    Icon(painter= painterResource(R.drawable.baseline_arrow_right_48),
                         contentDescription = stringResource(R.string.settings_description))
                 }
             }
