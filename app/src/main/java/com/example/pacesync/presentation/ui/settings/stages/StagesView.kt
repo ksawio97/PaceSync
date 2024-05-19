@@ -19,14 +19,18 @@ import androidx.compose.ui.unit.dp
 import com.example.pacesync.presentation.core.models.StageModel
 
 @Composable
-fun StagesView(stages: List<StageModel>) {
+fun StagesView(stages: List<StageModel>, modifier: Modifier = Modifier) {
     LazyVerticalGrid(
-        columns = GridCells.Fixed(4),
+        columns = GridCells.Fixed(3),
         verticalArrangement = Arrangement.spacedBy(8.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = modifier
     ) {
         items(stages, key = { it.id }) { stage ->
-            StageView(stage, Modifier.background(Color.Blue).size(32.dp))
+            StageView(stage,
+                Modifier
+                    .background(Color.Blue)
+                    .size(32.dp))
         }
     }
 }
@@ -34,18 +38,16 @@ fun StagesView(stages: List<StageModel>) {
 @Preview(device = Devices.WEAR_OS_SMALL_ROUND, showSystemUi = true)
 @Composable
 fun StagesViewPreview() {
+    val stages = listOf<Int>(5,12,8,11,4).map {
+        StageModel(it)
+    }
+
     Box (
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
         contentAlignment = Alignment.Center
     ) {
-        StagesView(listOf(
-            StageModel(4),
-            StageModel(8),
-            StageModel(1),
-            StageModel(2),
-            StageModel(3),
-        ))
+        StagesView(stages, Modifier.padding(8.dp))
     }
 }

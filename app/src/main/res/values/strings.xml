@@ -4,8 +4,8 @@
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
     -->
-    <string name="hello_world">From the Square world,\nHello, %1$s!</string>
     <string name="settings_description">Settings</string>
     <string name="stages_help">Stages help</string>
     <string name="stages">Stages</string>
+    <string name="add">Add</string>
 </resources>

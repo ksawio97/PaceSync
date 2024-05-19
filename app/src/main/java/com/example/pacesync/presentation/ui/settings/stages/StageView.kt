@@ -22,7 +22,7 @@ fun StageView(stageModel: StageModel, modifier: Modifier = Modifier) {
     Box (
         contentAlignment = Alignment.Center,
         modifier = modifier
-            .size(28.dp)
+            .padding(8.dp)
     ) {
         Text("${stageModel.seconds}", fontSize = MaterialTheme.typography.body2.fontSize)
     }
@@ -36,6 +36,6 @@ fun StageViewPreview() {
             .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        StageView(StageModel(2, UUID.randomUUID()), Modifier.background(Color.Blue).padding(2.dp))
+        StageView(StageModel(2, UUID.randomUUID()), Modifier.background(Color.Blue).size(32.dp))
     }
 }
