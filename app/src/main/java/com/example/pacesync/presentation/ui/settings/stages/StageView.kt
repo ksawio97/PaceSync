@@ -14,17 +14,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
-import com.example.pacesync.presentation.core.models.StageModel
-import java.util.UUID
 
 @Composable
-fun StageView(stageModel: StageModel, modifier: Modifier = Modifier) {
+fun StageView(seconds: Int, modifier: Modifier = Modifier) {
     Box (
         contentAlignment = Alignment.Center,
         modifier = modifier
             .padding(8.dp)
     ) {
-        Text("${stageModel.seconds}", fontSize = MaterialTheme.typography.body2.fontSize)
+        Text("$seconds", fontSize = MaterialTheme.typography.body2.fontSize)
     }
 }
 
@@ -36,6 +34,6 @@ fun StageViewPreview() {
             .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        StageView(StageModel(2, UUID.randomUUID()), Modifier.background(Color.Blue).size(32.dp))
+        StageView(2, Modifier.background(Color.Blue).size(32.dp))
     }
 }

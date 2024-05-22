@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -46,14 +47,8 @@ fun SettingsView(viewModel: SettingsViewModel = hiltViewModel()) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         item {
-            Row (verticalAlignment = Alignment.CenterVertically){
-                Text(modifier = Modifier.padding(8.dp), text = stringResource(R.string.stages))
-                Button (
-                    modifier = Modifier
-                        .size(16.dp), onClick = { showDialog.value = true }) {
-                    Icon(painter = painterResource(R.drawable.baseline_help_24),
-                        contentDescription = stringResource(R.string.stages_help))
-                }
+            StagesHeader {
+                showDialog.value = true
             }
         }
         item {
@@ -70,6 +65,7 @@ fun SettingsView(viewModel: SettingsViewModel = hiltViewModel()) {
             Button(
                 onClick = { viewModel.addStage(StageModel(Random.nextInt(1, 100))) },
                 modifier = Modifier
+                    .height(40.dp)
                     .fillMaxWidth(0.6f),
             ) {
                 Text(stringResource(R.string.add))
@@ -82,6 +78,19 @@ fun SettingsView(viewModel: SettingsViewModel = hiltViewModel()) {
                     showDialog.value = false
                 }
             }
+        }
+    }
+}
+
+@Composable
+internal fun StagesHeader(onDialogShow: () -> Unit) {
+    Row (verticalAlignment = Alignment.CenterVertically){
+        Text(modifier = Modifier.padding(8.dp), text = stringResource(R.string.stages))
+        Button (
+            modifier = Modifier
+                .size(16.dp), onClick = onDialogShow) {
+            Icon(painter = painterResource(R.drawable.baseline_help_24),
+                contentDescription = stringResource(R.string.stages_help))
         }
     }
 }

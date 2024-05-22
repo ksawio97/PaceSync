@@ -27,7 +27,7 @@ fun StagesView(stages: List<StageModel>, modifier: Modifier = Modifier) {
         modifier = modifier
     ) {
         items(stages, key = { it.id }) { stage ->
-            StageView(stage,
+            StageView(stage.seconds,
                 Modifier
                     .background(Color.Blue)
                     .size(32.dp))
